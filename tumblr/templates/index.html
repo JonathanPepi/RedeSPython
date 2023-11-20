@@ -1,0 +1,24 @@
+{% extends "perry.html" %}
+
+ {% block  titulo%} Página principal  {% endblock%}
+
+    
+
+    
+    
+{% block  body%}
+    {% for i in range(0, 1): %}
+    <h1>{{textinho}}</h1>
+    {% endfor %}
+
+<head>
+    <link rel="stylesheet" type="text/css" href="../static/css/index.css">
+</head>
+    <!--Modo certo-->
+    <a href=" {{ url_for('login') }} ">Login</a>
+    <br>
+    <a href=" {{ url_for('createAccount') }} ">Registrar</a>
+    <br>
+
+      <img src="https://i.pinimg.com/originals/ec/5f/37/ec5f377a267f9e999a5f4b13bd0fb102.gif">
+{% endblock%}

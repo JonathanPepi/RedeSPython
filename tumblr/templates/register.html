@@ -1,0 +1,33 @@
+{% extends "perry.html" %}
+
+{% block  body%}
+
+<head>
+    <link rel="stylesheet" type="text/css" href="../static/css/register.css">
+</head>
+
+    <img src="https://media.tenor.com/XCbPnEvSDgEAAAAC/ace-firefist-ace.gif">
+    <h2>Criar Conta</h2>
+    
+    <form method="POST">
+    {{ form.csrf_token }}
+
+     <label>Email</label>
+        {{ form.email }}
+
+    <label>Usuário</label>
+    {{ form.username }}
+        
+    <br>
+    <label>Senha</label>
+    {{ form.password }}
+    <br>
+
+    <label>Confirmar Senha</label>
+        {{ form.confirmpassword }}
+        
+    <br>
+    {{ form.btn }}
+    </form>
+
+{% endblock%}

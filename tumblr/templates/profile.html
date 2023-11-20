@@ -1,0 +1,50 @@
+{% extends "perry.html" %}
+
+{% block  titulo%} profile {{user}}  {% endblock%}
+
+    
+
+
+{% block  body%}
+
+<head>
+    <link rel="stylesheet" type="text/css" href="../static/css/profile.css">
+</head>
+
+    <h1> Fala {{user.username}} </h1> <!--- {{ fotos }}-->
+    <br>
+    <a href=" {{ url_for('homepage') }}"> Home </a>
+    <br>
+
+    {% if form %}
+    <form method="POST" enctype="multipart/form-data">
+        {{ form.csrf_token }}
+
+        {{ form.text.label() }}
+        {{ form.text }}
+        <br>
+        {{ form.photo.label() }}
+        {{ form.photo() }}
+        <br>
+        {{ form.btn }}
+        <br>
+    </form>
+    {% endif %}
+
+    {% include "navbar.html" %}
+    <a href="{{ url_for('posts') }}">Posts </a>
+
+    <h3>Publicações Recentes</h3>
+    {% for post in user.posts %}
+        <!-- <img src="{{ url_for('static', filename='fotos_dos_posts/default.jpg') }}"> -->
+        <p>{{ post.post_Text }}</p>
+        <img class="img-thumbnail rounded" src="{{ url_for('static', filename='fotos_dos_posts/{}'.format(post.post_image)) }}">
+        <form method="POST" action="{{ url_for('delete_post', post_id=post.id) }}">
+            <button type="submit">Delete</button>
+        </form>
+    {% endfor %}
+
+
+    <br>
+    <img src="https://media.tenor.com/-eSidCHMot4AAAAj/is-the-shadow.gif">
+{% endblock%}

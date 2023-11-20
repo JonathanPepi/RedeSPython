@@ -1,0 +1,17 @@
+nav {
+    text-align: center;
+    margin-top: 20px;
+}
+
+a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+}
+
+a:hover {
+    background-color: #f0f0f0;
+    border-radius: 5px;
+}

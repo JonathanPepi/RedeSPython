@@ -1,0 +1,27 @@
+{% extends "perry.html" %}
+
+{% block  body%}
+
+<head>
+    <link rel="stylesheet" type="text/css" href="../static/css/login.css">
+
+</head>
+
+    <img src="https://i.pinimg.com/originals/50/b9/a1/50b9a1a49ddb7a40acbb35066e352cb3.gif">
+    <h2>Login</h2>
+
+    <form method="POST">
+    {{ form.csrf_token }}
+
+    <label>Usuário</label>
+    {{ form.username }}
+
+    <br>
+    <label>Senha</label>
+    {{ form.password }}
+
+    <br>
+    {{ form.btn }}
+    </form>
+
+{% endblock%}
